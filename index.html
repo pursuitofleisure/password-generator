@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Password Generator by Diana Le</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@800&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+   <main>
+      <section class="password-generator">
+         <h1>Generate a <span>random password</span></h1>
+         <p>How to stop using "password123".</p>
+         <div class="password-inputs">
+            <button id="generate-password"><img src="./images/lightning.png" alt="" width="14" height="18">Generate
+               Passwords</button>
+            <div id="password-length">
+               <label for="password-length__input">Password Length</label>
+               <input type="number" id="password-length__input" placeholder="12" min="1" max="20">
+            </div>
+         </div>
+         <div class="password-results">
+            <input type="text" class="password-results__output" id="password-results__01" placeholder="***">
+            <input type="text" class="password-results__output" id="password-results__02" placeholder="***">
+            <input type="text" class="password-results__output" id="password-results__03" placeholder="***">
+            <input type="text" class="password-results__output" id="password-results__04" placeholder="***">
+         </div>
+      </section>
+   </main>
+   <script src="./index.js"></script>
+</body>
+
+</html>
