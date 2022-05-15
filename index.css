@@ -42,10 +42,9 @@ input[type="text"] {
 :root {
    --color-font: #fff;
    --color-bg: #ECFDF5;
-   --color-button: #10B981;
+   --color-button: #059669;
    --color-button-hover: #92400E;
-   --color-bg-results: #273549;
-   --color-bg-font: #5DEF92;
+   --color-bg-font: #059669;
    --color-gray: #6B7280;
    --color-h1: #2B283A;
    --color-border: #D5D4D8;
@@ -53,7 +52,20 @@ input[type="text"] {
    --color-text-input: #5DEF92;
 }
 
-@media (prefers-color-scheme: dark) {}
+@media (prefers-color-scheme: dark) {
+   :root {
+      --color-font: #fff;
+      --color-bg: #1F2937;
+      --color-button: #059669;
+      --color-button-hover: #92400E;
+      --color-bg-font: #55F991;
+      --color-gray: #D5D4D8;
+      --color-h1: #fff;
+      --color-border: #2F3E53;
+      --color-bg-output: #273549;
+      --color-text-input: #55F991;
+   }
+}
 
 body {
    font-family: 'Inter', sans-serif;
@@ -73,13 +85,22 @@ h1 {
 
 h1>span {
    display: block;
-   color: var(--color-button);
+   color: var(--color-bg-font);
 }
 
 p {
    font-size: 16px;
    color: var(--color-gray);
    margin-bottom: 40px;
+}
+
+a {
+   color: var(--color-bg-font);
+}
+
+a:hover,
+a:focus {
+   color: var(--color-button-hover);
 }
 
 label {
@@ -112,11 +133,12 @@ button>img {
 }
 
 .password-generator {
+   position: relative;
    background-color: var(--color-bg);
    max-width: 96%;
    width: 600px;
    margin: 2rem auto 1rem;
-   padding: 32px 24px;
+   padding: 32px 24px 24px;
 }
 
 .password-inputs {
@@ -138,7 +160,7 @@ button>img {
 
 #password-length__input {
    width: 70px;
-   padding: 8px;
+   padding: 12px 8px;
    border: 0;
    border: 1px solid var(--color-button);
    border-radius: 6px;
@@ -165,6 +187,40 @@ button>img {
    text-align: center;
 }
 
+.status {
+   opacity: 0;
+   visibility: hidden;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 1;
+   background-color: #A7F3D0;
+   padding: 1rem 2rem;
+   border-radius: 6px;
+   text-align: center;
+   transition: opacity 0.4s ease-in-out;
+   font-size: 12px;
+   font-weight: 500;
+}
+
+.status.active {
+   opacity: 1;
+   visibility: visible;
+}
+
+#copied-password {
+   font-size: 18px;
+   margin-top: 8px;
+}
+
+#credits {
+   color: var(--color-font);
+   font-size: 14px;
+   text-align: center;
+   margin-top: 32px;
+}
+
 @media (min-width: 600px) {
 
    h1 {
@@ -176,7 +232,7 @@ button>img {
    }
 
    .password-generator {
-      padding: 50px;
+      padding: 50px 50px 32px;
    }
 
    .password-inputs {

@@ -1,8 +1,4 @@
 const generatePasswordButton = document.getElementById('generate-password');
-const generatedPassword01 = document.getElementById('password-results__01');
-const generatedPassword02 = document.getElementById('password-results__02');
-const generatedPassword03 = document.getElementById('password-results__03');
-const generatedPassword04 = document.getElementById('password-results__04');
 const passwordResultsInputs = document.querySelectorAll('.password-results__output');
 
 // Set default password length if empty
@@ -40,6 +36,11 @@ const passwordCharacters = [
 
 function handleGeneratePassword() {
 
+   const generatedPassword01 = document.getElementById('password-results__01');
+   const generatedPassword02 = document.getElementById('password-results__02');
+   const generatedPassword03 = document.getElementById('password-results__03');
+   const generatedPassword04 = document.getElementById('password-results__04');
+
    // Reset passwords
    let password01 = '';
    let password02 = '';
@@ -69,6 +70,10 @@ function handleGeneratePassword() {
    generatedPassword03.value = password03;
    generatedPassword04.value = password04;
 
+   passwordResultsInputs.forEach(input => {
+      input.removeAttribute('disabled');
+   })
+
 }
 
 // Copy generated passwords to clipboard
@@ -81,12 +86,23 @@ function copy(e) {
       document.execCommand("copy");
    } else{
       navigator.clipboard.writeText(copyText).then (function(){
-         console.log('password copied'); // success 
+
+         // Display copied password to user in alert for 2 seconds
+         const copiedPassword = document.getElementById('copied-password');
+         copiedPassword.textContent = copyText;
+         const status = document.querySelector('.status');
+         status.classList.add('active');
+         setTimeout(() => {
+            status.classList.remove('active');
+          }, 2000);
+          
       })
       .catch (function() {
-         console.log('error'); // error
+         console.log('Error copying password'); // error
       });
-   }    
+   }
+
+
 }
 
 // Event handler for generate password button

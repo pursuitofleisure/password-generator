@@ -17,7 +17,7 @@
    <main>
       <section class="password-generator">
          <h1>Generate a <span>random password</span></h1>
-         <p>How to stop using "password123".</p>
+         <p>And stop using "password123".</p>
          <div class="password-inputs">
             <button id="generate-password"><img src="./images/lightning.png" alt="" width="14" height="18">Generate
                Passwords</button>
@@ -27,11 +27,18 @@
             </div>
          </div>
          <div class="password-results">
-            <input type="text" class="password-results__output" id="password-results__01" placeholder="***">
-            <input type="text" class="password-results__output" id="password-results__02" placeholder="***">
-            <input type="text" class="password-results__output" id="password-results__03" placeholder="***">
-            <input type="text" class="password-results__output" id="password-results__04" placeholder="***">
+            <input type="text" class="password-results__output" id="password-results__01" placeholder="***" disabled>
+            <input type="text" class="password-results__output" id="password-results__02" placeholder="***" disabled>
+            <input type="text" class="password-results__output" id="password-results__03" placeholder="***" disabled>
+            <input type="text" class="password-results__output" id="password-results__04" placeholder="***" disabled>
          </div>
+         <div class="status">Password Copied:
+            <div id="copied-password"></div>
+         </div>
+         <footer id="credits">
+            View on <a href="https://github.com/pursuitofleisure/password-generator" target="_blank">Github</a> | Made
+            by <a href="https://www.dianale.dev/" target="_blank">Diana Le</a>
+         </footer>
       </section>
    </main>
    <script src="./index.js"></script>
